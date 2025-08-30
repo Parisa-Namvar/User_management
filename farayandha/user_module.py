@@ -2,6 +2,7 @@ from validation_module import *
 
 users_list = []
 
+# test passed
 def show_menu():
     # نمایش دادن منو
     print('1) Add users')
@@ -18,15 +19,14 @@ def show_menu():
 def add_users():
     # دریافت اطلاعات کاربران و اعتبارسنجی آنها
     #todo سوال؟؟ اگر بخوایم تا وقتی که کاربر اسم معتبر یا رمز معتبر وارد نکرده به مرحله بعدی نریم و به ورودی گرفتن ادامه بدیم این روش (روش زیر) درست است ؟؟؟
+    # todo (برای نگرفتن اسم تکراری این روش درست است ؟؟(یک تابع نوشته شده و اینجا استفاده شده
     while True:
         user_name = input('Enter username: ')
-        if username_validation(user_name):
+        if username_validation(user_name) and uniqe(user_name):
             print('INFO : username saved')
             break
         else:
-            print('ERROR : invalid username!! try again')
-
-    # todo کاربر با اسم تکراری ثبت نشه
+            print('ERROR : invalid username (maybe username already exists!) try again')
 
     while True:
         password = input('Enter password: ')
@@ -86,3 +86,7 @@ def login_check():
         else:
             print('ERROR : user not found!')
 
+ # کاربر با اسم تکراری ثبت نشود
+def uniqe(user_name):
+    for user in users_list:
+        return user_name != user['username']
