@@ -1,4 +1,4 @@
-from validation_module import *
+from farayandha.validation_module import *
 
 users_list = []
 

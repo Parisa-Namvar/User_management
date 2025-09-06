@@ -1,2 +1,2 @@
-from user_module import *
-from validation_module import *
+from farayandha.user_module import *
+from farayandha.validation_module import *
